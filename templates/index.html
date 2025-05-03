@@ -2,32 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Face Monitoring</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #f5f5f5;
-      }
-      video,
-      img {
-        border: 2px solid #333;
-        margin-top: 20px;
-      }
-      button {
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-      }
-    </style>
+    <title>Monitoring</title>
   </head>
   <body>
-    <h1>System monitoringu twarzy</h1>
+    <h1>Monitoring z rozpoznawaniem twarzy</h1>
     <img src="{{ url_for('video') }}" width="640" height="480" />
-    <br />
-    <form method="POST" action="{{ url_for('register') }}">
+
+    <form action="/register" method="post">
+      <input type="text" name="name" placeholder="Podaj imię" required />
       <button type="submit">Zarejestruj twarz</button>
+    </form>
+
+    <form action="/clear_faces" method="post">
+      <button type="submit" style="color: red">
+        🗑 Wyczyść bazę użytkowników
+      </button>
+    </form>
+
+    <h2>Filtry obrazu</h2>
+    <form action="/update_filters" method="post">
+      <label
+        >Kontrast:
+        <input
+          type="range"
+          name="contrast"
+          min="0.5"
+          max="3.0"
+          step="0.1"
+          value="{{ filters['contrast'] }}" /></label
+      ><br />
+      <label
+        >Jasność:
+        <input
+          type="range"
+          name="brightness"
+          min="-100"
+          max="100"
+          step="1"
+          value="{{ filters['brightness'] }}" /></label
+      ><br />
+      <label
+        >Rozmycie (blur):
+        <input
+          type="range"
+          name="blur"
+          min="1"
+          max="15"
+          step="2"
+          value="{{ filters['blur'] }}" /></label
+      ><br />
+      <button type="submit">Zastosuj</button>
     </form>
   </body>
 </html>
