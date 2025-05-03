@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Podgląd z kamery</title>
+  </head>
+  <body>
+    <h1>Rozpoznawanie twarzy</h1>
+    <img src="{{ url_for('video') }}" width="640" height="480" />
+
+    <form method="POST" action="/register">
+      <button type="submit">Zarejestruj zaufaną twarz</button>
+    </form>
+  </body>
+</html>
