@@ -46,5 +46,5 @@ monitoring/
 ```
 
 ## Autor
+Wiktor Malęga
 
-Projekt stworzony w celu demonstracji rozpoznawania twarzy.
