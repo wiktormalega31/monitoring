@@ -1,14 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Podgląd z kamery</title>
+    <meta charset="UTF-8" />
+    <title>Face Monitoring</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f5f5f5;
+      }
+      video,
+      img {
+        border: 2px solid #333;
+        margin-top: 20px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <h1>Rozpoznawanie twarzy</h1>
+    <h1>System monitoringu twarzy</h1>
     <img src="{{ url_for('video') }}" width="640" height="480" />
-
-    <form method="POST" action="/register">
-      <button type="submit">Zarejestruj zaufaną twarz</button>
+    <br />
+    <form method="POST" action="{{ url_for('register') }}">
+      <button type="submit">Zarejestruj twarz</button>
     </form>
   </body>
 </html>
